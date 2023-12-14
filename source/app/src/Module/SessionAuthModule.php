@@ -45,7 +45,6 @@ use MyVendor\MyProject\Provider\CustomerAuthenticatorProvider;
 use MyVendor\MyProject\Provider\SalonAuthenticatorProvider;
 use MyVendor\MyProject\Resource\Page\BaseAdminPage;
 use MyVendor\MyProject\Resource\Page\BaseSalonPage;
-use MyVendor\MyProject\Resource\Page\BaseStoreMeApi;
 use MyVendor\MyProject\Resource\Page\BaseStorePage;
 use Ray\Di\AbstractModule;
 use Ray\Di\Scope;
@@ -182,12 +181,6 @@ class SessionAuthModule extends AbstractModule
             $this->matcher->subclassesOf(BaseStorePage::class),
             $this->matcher->annotatedWith(CustomerGuard::class),
             [CustomerAuthGuardian::class],
-        );
-
-        $this->bindInterceptor(
-            $this->matcher->subclassesOf(BaseStoreMeApi::class),
-            $this->matcher->annotatedWith(MeGuard::class),
-            [MeAuthGuardian::class],
         );
     }
 }

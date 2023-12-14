@@ -1,8 +1,5 @@
 {{ extends ('layout/Store/base') }}
 {{ $storeHelpers = storeHelpers() }}
-{{ $storeContext = storeContext() }}
-
-{{ setBlock ('title') }}Login | {{= $storeContext->getStoreName() }} | {{ parentBlock () }}{{ endBlock () }}
 
 {{ setBlock ('head_scripts') }}
     {{ parentBlock () }}
@@ -40,6 +37,4 @@
     {{= $storeHelpers->submit(form: $form, input: 'login', attribs: ['id' => 'login', 'value' => 'LOGIN', 'disabled' => 'disabled']) }}
     {{= csrfTokenField(form: $form) }}
 </form>
-
-<a href="{{= $storeContext->getStoreUrl() }}/forgot-password">パスワードを忘れた人</a>
 {{ endBlock () }}
