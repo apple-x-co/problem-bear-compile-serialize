@@ -18,7 +18,6 @@ use AppCore\Application\Store\VerifyJoinCustomerUseCase;
 use AppCore\Domain\Admin\AdminRepositoryInterface;
 use AppCore\Domain\Customer\CustomerRepositoryInterface;
 use AppCore\Domain\CustomerFavoriteProduct\CustomerFavoriteProductRepositoryInterface;
-use AppCore\Domain\CustomerOrder\CustomerOrderRepositoryInterface;
 use AppCore\Domain\CustomerReward\CustomerRewardRepositoryInterface;
 use AppCore\Domain\CustomerStore\CustomerStoreRepositoryInterface;
 use AppCore\Domain\Encrypter\EncrypterInterface;
@@ -48,7 +47,6 @@ use AppCore\Domain\Taxonomy\TaxonomyRepositoryInterface;
 use AppCore\Domain\UrlSignature\UrlSignatureEncrypterInterface;
 use AppCore\Infrastructure\Persistence\AdminRepository;
 use AppCore\Infrastructure\Persistence\CustomerFavoriteProductRepository;
-use AppCore\Infrastructure\Persistence\CustomerOrderRepository;
 use AppCore\Infrastructure\Persistence\CustomerRepository;
 use AppCore\Infrastructure\Persistence\CustomerRewardRepository;
 use AppCore\Infrastructure\Persistence\CustomerStoreRepository;
@@ -202,7 +200,6 @@ final class BaseModule extends AbstractModule
         //@formatter:off
         $this->bind(AdminRepositoryInterface::class)->to(AdminRepository::class)->in(Scope::SINGLETON);
         $this->bind(CustomerFavoriteProductRepositoryInterface::class)->to(CustomerFavoriteProductRepository::class)->in(Scope::SINGLETON);
-        $this->bind(CustomerOrderRepositoryInterface::class)->to(CustomerOrderRepository::class)->in(Scope::SINGLETON);
         $this->bind(CustomerRepositoryInterface::class)->to(CustomerRepository::class)->in(Scope::SINGLETON);
         $this->bind(CustomerRewardRepositoryInterface::class)->to(CustomerRewardRepository::class)->in(Scope::SINGLETON);
         $this->bind(CustomerStoreRepositoryInterface::class)->to(CustomerStoreRepository::class)->in(Scope::SINGLETON);
