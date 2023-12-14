@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "/me/products/favorites GET response validation",
+  "properties": {
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    }
+  },
+  "required": [
+    "products"
+  ]
+}

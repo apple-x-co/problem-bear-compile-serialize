@@ -1,0 +1,9 @@
+parameters:
+  level: 6
+  paths:
+    - src
+    - tests
+    - ddd/core/src
+  excludePaths:
+  	- tests/Http/index.php
+  	- src/Form/NormalizeFiles.php

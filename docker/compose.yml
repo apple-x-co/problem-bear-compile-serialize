@@ -1,0 +1,72 @@
+version: "3.9"
+
+services:
+  web:
+    image: ghcr.io/buddying-inc/webserver-amzn2:apache24-php81
+    platform: linux/amd64
+    container_name: bear-web
+    working_dir: /var/www/html
+    volumes:
+      - type: bind
+        source: ../source/app
+        target: /var/www/html
+        read_only: false
+        consistency: delegated
+      - type: bind
+        source: localhost.conf
+        target: /etc/httpd/conf.d/00_localhost.conf
+        read_only: true
+      - type: bind
+        source: opcache-disable.ini
+        target: /etc/opt/remi/php81/php.d/opcache-disable.ini
+        read_only: true
+    ports:
+      - "80:80"
+    environment:
+      - PHP_XDEBUG=off
+      - COMPOSER_ALLOW_SUPERUSER=1
+      - APP_ENV=local
+
+  mysql:
+    image: ghcr.io/buddying-inc/mysql:80
+    container_name: bear-mysql
+    volumes:
+      - type: bind
+        source: .mysql
+        target: /var/lib/mysql
+        read_only: false
+        consistency: delegated
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=passw0rd
+      - MYSQL_DATABASE=bear_db
+      - MYSQL_USER=bear
+      - MYSQL_PASSWORD=passw0rd
+      - TZ=Asia/Tokyo
+
+  smtp:
+    image: mailhog/mailhog
+    platform: linux/amd64
+    container_name: bear-smtp
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+
+  localstack:
+    image: localstack/localstack
+    container_name: localhost.localstack.cloud
+    ports:
+      - "127.0.0.1:4566:4566"
+      - "127.0.0.1:4510-4559:4510-4559"
+    volumes:
+      - "./init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"
+      - "${LOCALSTACK_VOLUME_DIR:-./.localstack}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - DEBUG=1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - DEFAULT_REGION=ap-northeast-1
+      - SERVICES=s3,dynamodb
+      - DATA_DIR=/tmp/localstack/data
+      - HOSTNAME_EXTERNAL=localhost.localstack.cloud

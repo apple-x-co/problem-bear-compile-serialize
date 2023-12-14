@@ -1,0 +1,4 @@
+.localstack/*
+!.localstack/.gitkeep
+.mysql/*
+!.mysql/.gitkeep

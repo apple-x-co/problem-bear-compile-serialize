@@ -1,0 +1,5 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "/me/products/favorites POST response validation",
+  "properties": {}
+}

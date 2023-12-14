@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "/me/cart/item POST request validation",
+  "properties": {
+    "cartItem": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "productVariantId": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "productId",
+        "productVariantId",
+        "quantity"
+      ]
+    }
+  },
+  "required": [
+    "cartItem"
+  ]
+}

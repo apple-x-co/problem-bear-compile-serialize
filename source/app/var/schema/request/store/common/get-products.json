@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "/me/common/products GET request validation",
+  "properties": {
+    "products": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minimum": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "products"
+  ]
+}
