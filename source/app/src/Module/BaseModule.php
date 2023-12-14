@@ -21,8 +21,6 @@ use AppCore\Domain\CustomerFavoriteProduct\CustomerFavoriteProductRepositoryInte
 use AppCore\Domain\CustomerOrder\CustomerOrderRepositoryInterface;
 use AppCore\Domain\CustomerReward\CustomerRewardRepositoryInterface;
 use AppCore\Domain\CustomerStore\CustomerStoreRepositoryInterface;
-use AppCore\Domain\DiscountCode\DiscountCodeRepositoryInterface;
-use AppCore\Domain\DiscountCodeActivity\DiscountCodeActivityRepositoryInterface;
 use AppCore\Domain\Encrypter\EncrypterInterface;
 use AppCore\Domain\FeaturedProduct\FeaturedProductRepositoryInterface;
 use AppCore\Domain\FincodePayPayEvent\FincodePayPayEventRepositoryInterface;
@@ -66,8 +64,6 @@ use AppCore\Infrastructure\Persistence\CustomerOrderRepository;
 use AppCore\Infrastructure\Persistence\CustomerRepository;
 use AppCore\Infrastructure\Persistence\CustomerRewardRepository;
 use AppCore\Infrastructure\Persistence\CustomerStoreRepository;
-use AppCore\Infrastructure\Persistence\DiscountCodeActivityRepository;
-use AppCore\Infrastructure\Persistence\DiscountCodeRepository;
 use AppCore\Infrastructure\Persistence\FeaturedProductRepository;
 use AppCore\Infrastructure\Persistence\FincodePayPayEventRepository;
 use AppCore\Infrastructure\Persistence\MakerRepository;
@@ -235,8 +231,6 @@ final class BaseModule extends AbstractModule
         $this->bind(CustomerRepositoryInterface::class)->to(CustomerRepository::class)->in(Scope::SINGLETON);
         $this->bind(CustomerRewardRepositoryInterface::class)->to(CustomerRewardRepository::class)->in(Scope::SINGLETON);
         $this->bind(CustomerStoreRepositoryInterface::class)->to(CustomerStoreRepository::class)->in(Scope::SINGLETON);
-        $this->bind(DiscountCodeActivityRepositoryInterface::class)->to(DiscountCodeActivityRepository::class)->in(Scope::SINGLETON);
-        $this->bind(DiscountCodeRepositoryInterface::class)->to(DiscountCodeRepository::class)->in(Scope::SINGLETON);
         $this->bind(FeaturedProductRepositoryInterface::class)->to(FeaturedProductRepository::class)->in(Scope::SINGLETON);
         $this->bind(FincodePayPayEventRepositoryInterface::class)->to(FincodePayPayEventRepository::class)->in(Scope::SINGLETON);
         $this->bind(MakerRepositoryInterface::class)->to(MakerRepository::class)->in(Scope::SINGLETON);
