@@ -33,24 +33,14 @@ use AppCore\Domain\Mail\TemplateRendererInterface;
 use AppCore\Domain\Mail\TransportInterface;
 use AppCore\Domain\Product\ProductRepositoryInterface;
 use AppCore\Domain\SecureRandom\SecureRandomInterface;
-use AppCore\Domain\Stock\StockRepositoryInterface;
 use AppCore\Domain\Store\StoreRepositoryInterface;
-use AppCore\Domain\StoreFeePaymentIntent\StoreFeePaymentIntentRepositoryInterface;
-use AppCore\Domain\StoreUsage\StoreUsageRepositoryInterface;
-use AppCore\Domain\Tax\TaxRepositoryInterface;
-use AppCore\Domain\Taxonomy\TaxonomyRepositoryInterface;
 use AppCore\Domain\UrlSignature\UrlSignatureEncrypterInterface;
 use AppCore\Infrastructure\Persistence\AdminRepository;
 use AppCore\Infrastructure\Persistence\CustomerFavoriteProductRepository;
 use AppCore\Infrastructure\Persistence\CustomerRepository;
 use AppCore\Infrastructure\Persistence\CustomerStoreRepository;
 use AppCore\Infrastructure\Persistence\ProductRepository;
-use AppCore\Infrastructure\Persistence\StockRepository;
-use AppCore\Infrastructure\Persistence\StoreFeePaymentIntentRepository;
 use AppCore\Infrastructure\Persistence\StoreRepository;
-use AppCore\Infrastructure\Persistence\StoreUsageRepository;
-use AppCore\Infrastructure\Persistence\TaxonomyRepository;
-use AppCore\Infrastructure\Persistence\TaxRepository;
 use AppCore\Infrastructure\Shared\AdminLogger;
 use AppCore\Infrastructure\Shared\CustomerLogger;
 use AppCore\Infrastructure\Shared\Encrypter;
@@ -193,12 +183,7 @@ final class BaseModule extends AbstractModule
         $this->bind(CustomerRepositoryInterface::class)->to(CustomerRepository::class)->in(Scope::SINGLETON);
         $this->bind(CustomerStoreRepositoryInterface::class)->to(CustomerStoreRepository::class)->in(Scope::SINGLETON);
         $this->bind(ProductRepositoryInterface::class)->to(ProductRepository::class)->in(Scope::SINGLETON);
-        $this->bind(StockRepositoryInterface::class)->to(StockRepository::class)->in(Scope::SINGLETON);
-        $this->bind(StoreFeePaymentIntentRepositoryInterface::class)->to(StoreFeePaymentIntentRepository::class)->in(Scope::SINGLETON);
         $this->bind(StoreRepositoryInterface::class)->to(StoreRepository::class)->in(Scope::SINGLETON);
-        $this->bind(StoreUsageRepositoryInterface::class)->to(StoreUsageRepository::class)->in(Scope::SINGLETON);
-        $this->bind(TaxRepositoryInterface::class)->to(TaxRepository::class)->in(Scope::SINGLETON);
-        $this->bind(TaxonomyRepositoryInterface::class)->to(TaxonomyRepository::class)->in(Scope::SINGLETON);
         //@formatter:on
     }
 
