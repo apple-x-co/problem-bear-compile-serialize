@@ -16,10 +16,7 @@ use AppCore\Application\Store\JoinCustomerUseCase;
 use AppCore\Application\Store\ResetCustomerPasswordUseCase;
 use AppCore\Application\Store\VerifyJoinCustomerUseCase;
 use AppCore\Domain\Admin\AdminRepositoryInterface;
-use AppCore\Domain\Area\AreaRepositoryInterface;
-use AppCore\Domain\Company\CompanyRepositoryInterface;
 use AppCore\Domain\Customer\CustomerRepositoryInterface;
-use AppCore\Domain\CustomerEmail\CustomerEmailRepositoryInterface;
 use AppCore\Domain\CustomerFavoriteProduct\CustomerFavoriteProductRepositoryInterface;
 use AppCore\Domain\CustomerOrder\CustomerOrderRepositoryInterface;
 use AppCore\Domain\CustomerReward\CustomerRewardRepositoryInterface;
@@ -63,10 +60,7 @@ use AppCore\Domain\Tax\TaxRepositoryInterface;
 use AppCore\Domain\Taxonomy\TaxonomyRepositoryInterface;
 use AppCore\Domain\UrlSignature\UrlSignatureEncrypterInterface;
 use AppCore\Infrastructure\Persistence\AdminRepository;
-use AppCore\Infrastructure\Persistence\AreaRepository;
-use AppCore\Infrastructure\Persistence\CompanyRepository;
 use AppCore\Infrastructure\Persistence\ConsumerPaymentMethodRepository;
-use AppCore\Infrastructure\Persistence\CustomerEmailRepository;
 use AppCore\Infrastructure\Persistence\CustomerFavoriteProductRepository;
 use AppCore\Infrastructure\Persistence\CustomerOrderRepository;
 use AppCore\Infrastructure\Persistence\CustomerRepository;
@@ -236,9 +230,6 @@ final class BaseModule extends AbstractModule
     {
         //@formatter:off
         $this->bind(AdminRepositoryInterface::class)->to(AdminRepository::class)->in(Scope::SINGLETON);
-        $this->bind(AreaRepositoryInterface::class)->to(AreaRepository::class)->in(Scope::SINGLETON);
-        $this->bind(CompanyRepositoryInterface::class)->to(CompanyRepository::class)->in(Scope::SINGLETON);
-        $this->bind(CustomerEmailRepositoryInterface::class)->to(CustomerEmailRepository::class)->in(Scope::SINGLETON);
         $this->bind(CustomerFavoriteProductRepositoryInterface::class)->to(CustomerFavoriteProductRepository::class)->in(Scope::SINGLETON);
         $this->bind(CustomerOrderRepositoryInterface::class)->to(CustomerOrderRepository::class)->in(Scope::SINGLETON);
         $this->bind(CustomerRepositoryInterface::class)->to(CustomerRepository::class)->in(Scope::SINGLETON);
