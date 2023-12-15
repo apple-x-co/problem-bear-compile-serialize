@@ -70,3 +70,9 @@ services:
       - SERVICES=s3,dynamodb
       - DATA_DIR=/tmp/localstack/data
       - HOSTNAME_EXTERNAL=localhost.localstack.cloud
+
+  memcached:
+    image: memcached
+    container_name: bear-memcached
+    ports:
+      - "11211:11211"
