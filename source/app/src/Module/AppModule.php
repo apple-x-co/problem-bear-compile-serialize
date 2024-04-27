@@ -8,6 +8,8 @@ use BEAR\Package\AbstractAppModule;
 use BEAR\Package\PackageModule;
 use Koriym\EnvJson\EnvJson;
 
+use Qiq\Helpers;
+
 use function dirname;
 
 /** @SuppressWarnings(PHPMD.CouplingBetweenObjects) */
@@ -19,7 +21,9 @@ class AppModule extends AbstractAppModule
 
         $this->install(new PackageModule());
 
+        // default bind
         $this->bind()->annotatedWith('qiq_extension')->toInstance('.php');
         $this->bind()->annotatedWith('qiq_paths')->toInstance([]);
+        $this->bind(Helpers::class)->to(Helpers::class);
     }
 }
