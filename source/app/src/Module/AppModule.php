@@ -20,5 +20,8 @@ class AppModule extends AbstractAppModule
         (new EnvJson())->load(dirname(__DIR__, 2));
 
         $this->install(new PackageModule());
+
+        $this->bind()->annotatedWith('qiq_extension')->toInstance('.php');
+        $this->bind()->annotatedWith('qiq_paths')->toInstance([]);
     }
 }
