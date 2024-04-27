@@ -12,6 +12,18 @@ class Index extends ResourceObject
     {
         $this->body['name'] = $name;
 
+        $memcached = new \Memcached();
+        $memcached->addServer('bear-memcached', 11211);
+
+        $a = $memcached->get('HELLO');
+        $this->body['a'] = $a;
+
+        $r = $memcached->set('HELLO', 'WORLD');
+        $this->body['r'] = $r ? 'OK' : 'NG';
+
+        $b = $memcached->get('HELLO');
+        $this->body['b'] = $b;
+
         return $this;
     }
 }
