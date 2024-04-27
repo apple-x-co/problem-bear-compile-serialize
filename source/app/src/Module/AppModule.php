@@ -21,7 +21,7 @@ class AppModule extends AbstractAppModule
 
         $this->install(new PackageModule());
 
-        // default bind
+        // Bind default
         $this->bind()->annotatedWith('qiq_extension')->toInstance('.php');
         $this->bind()->annotatedWith('qiq_paths')->toInstance([]);
         $this->bind(Helpers::class)->to(Helpers::class);
