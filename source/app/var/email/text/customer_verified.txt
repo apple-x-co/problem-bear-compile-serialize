@@ -1,7 +1,0 @@
-<?= $name ?> さま
-
-BEAR.Sunday にご登録いただきありがとうござざいます。
-
-会員登録が完了いたしました。
-
-<?php include('footer.txt') ?>
