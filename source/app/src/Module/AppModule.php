@@ -7,10 +7,8 @@ namespace MyVendor\MyProject\Module;
 use BEAR\Package\AbstractAppModule;
 use BEAR\Package\PackageModule;
 use Koriym\EnvJson\EnvJson;
-use Ray\IdentityValueModule\IdentityValueModule;
 
 use function dirname;
-use function getenv;
 
 /** @SuppressWarnings(PHPMD.CouplingBetweenObjects) */
 class AppModule extends AbstractAppModule
