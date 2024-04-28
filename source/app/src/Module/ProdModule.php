@@ -8,9 +8,11 @@ use BEAR\Package\AbstractAppModule;
 use BEAR\Package\Context\ProdModule as PackageProdModule;
 use BEAR\QueryRepository\CacheVersionModule;
 use BEAR\QueryRepository\StorageMemcachedModule;
+use BEAR\RepositoryModule\Annotation\EtagPool;
 use BEAR\Resource\Module\OptionsMethodModule;
 use MyVendor\MyProject\TemplateEngine\QiqErrorModule;
 use MyVendor\MyProject\TemplateEngine\QiqProdModule;
+use Psr\Cache\CacheItemPoolInterface;
 
 use function getenv;
 use function is_string;
@@ -36,6 +38,7 @@ final class ProdModule extends AbstractAppModule
             return;
         }
 
+        // $this->bind(CacheItemPoolInterface::class)->annotatedWith(EtagPool::class)->toInstance(null); // NOTE: コンパイル後も "Failed to verify the injector cache." が出てしまう現象の回避
         $this->install(new StorageMemcachedModule($memcachedServers));
     }
 
